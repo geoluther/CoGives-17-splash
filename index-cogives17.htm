@@ -33,9 +33,11 @@ body {
             <div class="row">
                 <div class="col-md-3 text-center pb-3"><a href="cgd-donate-button"><img class='img-fluid' src="./splash/2017/img/cgd-donate-button.png" alt="donate"></a></div>
                 <div class="col">
-                    <h5>Colorado Gives Day, Colorado’s largest one-day online giving movement, is coming up and KGNU needs <a href="https://www.coloradogives.org/index.php?section=organizations&action=newDonation&fwID=27966">your support</a>!</h5>
+                    <h5>Colorado Gives Day, Colorado’s largest one-day online giving movement, is happening on <strong>Tuesday, December 5th</strong> and KGNU needs <a href="https://www.coloradogives.org/index.php?section=organizations&action=newDonation&fwID=27966">your support</a>!</h5>
 
-                    <p>On <strong>Tuesday, December 5, 2017</strong>, thousands of donors will come together to support Colorado nonprofits like ours. This year, our goal is to raise $25,000 and we know that with your help we can make that goal!</p>
+                    <p>On that day, thousands of donors will come together to support Colorado nonprofits like ours. This year, our goal is to raise $25,000 and we know that with your help we can make that goal!</p>
+
+                    <!-- <div id="timer"></div> -->
 
                     <p class="mb-0">Already scheduled your donation? <a href="https://www.kgnu.org/index.html">Continue to KGNU</a>.</p>
                 </div>
@@ -58,6 +60,7 @@ body {
 
         <p>Thank you for your support. You make community-powered radio possible!</p>
 
+
         <hr>
 
         <div class="row">
@@ -77,20 +80,56 @@ body {
         <div class="mb-3"></div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+// Set the date we're counting down to
+var countDownDate = new Date("Dec 5, 2017 00:00:01").getTime();
 
-        ga('create', 'UA-50109703-1', 'auto');
-        ga('send', 'pageview');
+// Update the count down every 1 second
+function setTimer() {
+    var now = new Date().getTime();
 
-    </script>
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the element with id="demo"
+    // document.getElementById("timer").innerHTML = "<h5>Colorado Gives Day begins in: " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds</h5>";
+
+    document.getElementById("timer").innerHTML = "begins in " + days + " days and " + hours + " hours ";
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "is today";
+    }
+}
+
+setTimer();
+
+var x = setInterval(function() {
+    setTimer()}, 1000);
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-50109703-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
 
 </body>
 </html>
